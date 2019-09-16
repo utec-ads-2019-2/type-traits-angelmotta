@@ -21,7 +21,7 @@ class TraitsList {
         TraitsList() : head(nullptr) {};
              
         bool insert(T data) {
-            // TODO
+
         }
              
         bool remove(T data) {
