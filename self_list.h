@@ -39,7 +39,7 @@ class SelfList {
                 return true;
             }
             while(actual){
-                cout << "Estoy en: " << actual->data << '\n';
+                //cout << "Estoy en: " << actual->data << '\n';
                 if(actual->next->data == data){
                     //cout << "found " << data << " next to " << actual->data << " \n";
                     node_remove = actual->next;
@@ -55,19 +55,19 @@ class SelfList {
 
         bool find(T data) {
             if(this->method == Move){
-                cout << "Start method 'Move' finding \n";
+                //cout << "Start method 'Move' finding \n";
                 if(this->head == nullptr) return false;
                 Node<T>* actual = this->head;
-                Node<T>* node_remove = nullptr;
+                Node<T>* node_cp = nullptr;
                 if(actual->data == data){
                     return true;
                 }
                 while(actual){
                     if(actual->next->data == data){
-                        node_remove = actual->next;
+                        node_cp = actual->next;
                         actual->next = actual->next->next;
-                        delete node_remove;
-                        insert(data);
+                        node_cp->next = this->head;
+                        this->head = node_cp;
                         return true;
                     }
                     actual = actual->next;
@@ -75,7 +75,7 @@ class SelfList {
                 return false;
             }
             else if(this->method == Count){
-                cout << "Start method 'Count' finding \n";
+                //cout << "Start method 'Count' finding \n";
                 if(this->head == nullptr) return false;
                 Node<T>* actual = this->head;
                 Node<T>* prev_node_found = nullptr;  //pointer to the prev_node when find data
@@ -109,7 +109,7 @@ class SelfList {
                 return false;
             }
             else if(this->method == Transpose){
-                cout << "Start method 'Transpose' finding \n";
+                //cout << "Start method 'Transpose' finding \n";
                 if(this->head == nullptr) return false;
                 Node<T>* actual = this->head;
                 Node<T>* prev_node_found = nullptr;  //pointer to the prev_node which actually find data
