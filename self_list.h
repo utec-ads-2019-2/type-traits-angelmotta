@@ -33,6 +33,7 @@ class SelfList {
             if(this->head == nullptr) return false;
             Node<T>* actual = this->head;
             Node<T>* node_remove = nullptr;
+            // Para qué sacaste esta condición del bucle? Podrías tener todo junto
             if(actual->data == data){
                 this->head = actual->next;
                 delete actual;
@@ -54,12 +55,15 @@ class SelfList {
         }  
 
         bool find(T data) {
+            // Podrías haber sacado los métodos como funciones
+            // Podrías ahorrar muchas líneas con un find tipo la lista de traits con puntero doble
             if(this->method == Move){
                 //cout << "Start method 'Move' finding \n";
                 if(this->head == nullptr) return false;
                 Node<T>* actual = this->head;
                 Node<T>* node_cp = nullptr;
                 if(actual->data == data){
+                    // Aquí no estás moviendo al frente, si encuentras el elemento retornas true
                     return true;
                 }
                 while(actual){

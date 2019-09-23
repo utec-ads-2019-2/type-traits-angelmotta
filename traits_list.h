@@ -16,6 +16,7 @@ class TraitsList {
         bool find(T data, Node<T> **&pointer) {
             pointer = &(this->head);
             //Node<T>* actual = this->head;
+            // Aquí podrías cambiar un poco las condiciones para tener el return false fuera y evitar warnings
             while(*pointer) {
                 if ((*pointer)->data == data) {
                     return true;
